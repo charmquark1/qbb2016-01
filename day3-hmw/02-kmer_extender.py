@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Input: xxx.py target.fa query.fa k
+Input: xxx.py subset.fa droYak_query.fa k
 Output: kmer_seq, sorted
 """
 import sys
@@ -61,26 +61,11 @@ for ident, sequence in fasta_fixed.FASTAReader(target):
                     m=m-1
                     break
                 kmer_extend.append(longest_kmer)
-    print kmer_extend
+print '\n'.join(sorted (kmer_extend, reverse = True, key=len))
                 #print sorted(kmer_extend, reverse=True, key=len)
                 #print kmer_extend.sort(...)
-                #print '\n'.join(sorted(kmer_extend, reverse=True, key=len))
+            #print '\n'.join(sorted(kmer_extend, reverse=True, key=len))
 
 
-''''
-                # m = 1
-#                 if q_pos[query_start[kmer]+k_len+m] == t_pos[i+k_len+m]:
-#                     for ext in range(len(sequence)-k_len):
-#                         m = m+1
-#                         if q_pos[j+k_len+m] == t_pos[i+k_len+m]:
-#                             continue
-#                 elif q_pos[j-1] == t_pos[i-1]:  #don't print repeats
-#                     break
-                #else 
-                #   print error
-            kmer_extend.append(kmer)
-#kmer_extend.sort(reverse=True, key=len)
-            
-'''
-            
+
             
