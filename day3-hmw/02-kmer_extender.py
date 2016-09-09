@@ -12,7 +12,6 @@ query = open(sys.argv[2])
 k_len = int(sys.argv[3])
 #stringg = str(sys.argv[4])
 
-### Make dictionary of kmer_seq and query start 
 
 query_start = {}
 for ident, sequence in fasta_fixed.FASTAReader(query):
@@ -25,13 +24,7 @@ for ident, sequence in fasta_fixed.FASTAReader(query):
         if not query_start.get(kmer,0):
             query_start[kmer] = j
 
-#for i in query_start: print i, query_start[i]
 
-#define query start and target start
-# if they equal, continue to extend
-# if kmer position don't equal, break
-# if kmer position is at len of either, break
-# then append
 kmer_extend = []
 m=0
 for ident, sequence in fasta_fixed.FASTAReader(target):
